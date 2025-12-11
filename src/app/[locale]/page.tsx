@@ -1,5 +1,6 @@
 import Features from '@/components/homepage/Features';
 import HeroSection from '@/components/homepage/Hero';
+import LandingSections from '@/components/homepage/LandingSections';
 import { useTranslations } from 'next-intl';
 
 export default function HomePage() {
@@ -11,6 +12,7 @@ export default function HomePage() {
 
         <HeroSection/>
         <Features />
+        <LandingSections />
     </div>
     
   );
