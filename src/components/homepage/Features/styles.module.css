@@ -1,0 +1,48 @@
+/* src/components/Features/styles.module.css */
+.container {
+  padding: 5rem 4rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  background: linear-gradient(to bottom, #fff, #999);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: right;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-10px);
+  border-color: rgba(124, 58, 237, 0.3);
+  box-shadow: 0 10px 40px -10px rgba(124, 58, 237, 0.2);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.card p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}

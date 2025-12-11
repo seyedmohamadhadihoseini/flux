@@ -1,0 +1,92 @@
+
+.footer {
+  width: 100%;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 4rem 0 2rem;
+  margin-top: auto;
+  color: #fff;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.grid {
+  display: grid;
+  /* موبایل: یک ستون، وسط چین */
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .grid {
+    /* دسکتاپ: ۴ ستون */
+    grid-template-columns: 2fr 1fr 1fr 1fr; /* ستون برند بزرگتر */
+    text-align: start;
+    gap: 2rem;
+  }
+  
+  [dir="rtl"] .grid {
+    text-align: right;
+  }
+}
+.brandColumn h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #a78bfa, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+
+.description {
+  color: #888;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+.columnTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  color: #fff;
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* فاصله بین لینک‌ها */
+}
+
+/* برای اینکه لینک‌ها در موبایل وسط‌چین باشند */
+@media (max-width: 768px) {
+  .linkList {
+    align-items: center;
+  }
+}
+
+.link {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #fff;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: #4b5563;
+  font-size: 0.8rem;
+}

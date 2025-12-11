@@ -1,0 +1,72 @@
+/* src/components/Navbar/styles.module.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 4rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  /* افکت شیشه‌ای */
+  background: rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1.5rem 4rem;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #fff, #a78bfa);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+}
+
+.links a {
+  margin: 0 1.5rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.links a:hover {
+  color: #fff;
+}
+
+.ctaButton {
+  background: linear-gradient(90deg, #7c3aed, #4f46e5);
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(124, 58, 237, 0.4);
+}
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem; /* پدینگ کمتر در موبایل */
+  }
+
+  .links {
+    display: none; /* لینک‌های وسط را در موبایل مخفی کن تا شلوغ نشود */
+    /* نکته: برای پروژه واقعی باید اینجا منوی همبرگری بگذارید */
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .ctaButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}

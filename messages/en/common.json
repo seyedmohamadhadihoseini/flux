@@ -1,0 +1,10 @@
+{
+  "buttons": {
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "submit": "Submit"
+  },
+  "errors": {
+    "general": "An error occurred"
+  }
+}

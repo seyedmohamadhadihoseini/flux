@@ -1,0 +1,18 @@
+{
+  "brandDescription": "The next generation of messengers. No limits, fully secure.",
+  "columns": {
+    "product": "Product",
+    "legal": "Legal",
+    "social": "Social",
+    "resources":"resources"
+  },
+  "links": {
+    "download": "Download",
+    "features": "Features",
+    "security": "Security", 
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "blog":"blog",
+    "status":"status"
+  }
+}

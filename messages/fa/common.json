@@ -1,0 +1,10 @@
+{
+  "buttons": {
+    "confirm": "تایید",
+    "cancel": "لغو",
+    "submit": "ارسال"
+  },
+  "errors": {
+    "general": "خطایی رخ داده است"
+  }
+}

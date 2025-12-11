@@ -1,0 +1,10 @@
+{
+  "buttons": {
+    "confirm": "تأكيد",
+    "cancel": "إلغاء",
+    "submit": "إرسال"
+  },
+  "errors": {
+    "general": "حدث خطأ ما"
+  }
+}
