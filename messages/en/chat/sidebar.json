@@ -1,0 +1,21 @@
+{
+  "search_placeholder": "Search...",
+  "toggle_sidebar": "Toggle Menu",
+  "filters": {
+    "all": "All",
+    "personal": "Personal",
+    "group": "Groups",
+    "channel": "Channels"
+  },
+  "no_chats": "No conversations yet.",
+  "online": "Online",
+  "last_seen": "Last seen",
+  "tabs": {
+    "chats": "Chats",
+    "contacts": "Contacts",
+    "settings": "Settings"
+  },
+  "settings": {
+    "logout": "Log Out"
+  }
+}

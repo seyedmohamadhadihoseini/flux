@@ -1,0 +1,17 @@
+{
+  "heading": "Why Aura?",
+  "items": {
+    "encryption": {
+      "title": "End-to-End Encryption",
+      "desc": "Your messages stay between you and your contact."
+    },
+    "speed": {
+      "title": "Lightning Fast",
+      "desc": "Send messages without delay, even on slow networks."
+    },
+    "design": {
+      "title": "Fluid Design",
+      "desc": "A smooth experience with 60fps animations."
+    }
+  }
+}

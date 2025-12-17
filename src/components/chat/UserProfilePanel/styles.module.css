@@ -1,0 +1,211 @@
+/* src/components/chat/UserProfilePanel/styles.module.css */
+
+.panel {
+  width: 350px;
+  height: 100%;
+  background-color: var(--card-bg);
+  border-inline-start: 1px solid var(--card-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* جلوگیری از جمع شدن عرض */
+  animation: slideOver 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 30;
+  position: relative; /* برای اطمینان */
+}
+
+/* هدر پنل */
+.header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--card-border);
+  background-color: var(--card-bg);
+  flex-shrink: 0;
+}
+
+.desktopHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileHeader {
+  display: none; /* پیش‌فرض مخفی */
+  align-items: center;
+  gap: 1rem;
+}
+
+.title { font-weight: bold; color: var(--foreground); }
+.closeBtn { background: transparent; border: none; color: var(--text-muted); cursor: pointer; }
+
+/* دکمه بازگشت موبایل */
+.backBtn {
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+[dir="ltr"] .backBtn { transform: rotate(180deg); }
+
+.scrollContent {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.profileHeader {
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.avatarLarge {
+  width: 120px;
+  height: 120px;
+  position: relative;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  border-radius: 50%;
+  overflow: hidden; /* جلوگیری از بیرون زدگی عکس */
+  border: 4px solid var(--card-bg); /* حاشیه زیبا */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.avatarLarge:hover { transform: scale(1.02); }
+
+.avatarImg { object-fit: cover; }
+
+.photoCount {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  z-index: 2;
+}
+
+.name { font-size: 1.2rem; font-weight: 800; color: var(--foreground); margin-bottom: 4px; text-align: center; }
+.status { color: var(--primary); font-size: 0.9rem; }
+
+.infoSection { padding: 1rem; }
+.infoItem { margin-bottom: 1rem; display: flex; flex-direction: column; gap: 4px; }
+.infoItem label { font-size: 0.8rem; color: var(--primary); font-weight: 600; }
+.infoItem span { font-size: 0.95rem; color: var(--foreground); word-break: break-word; }
+
+.infoRow { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; cursor: pointer; }
+.iconMuted { color: var(--text-muted); }
+
+.divider { height: 8px; background-color: var(--background); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); }
+
+/* Tabs */
+/* --- Tabs (Redesigned) --- */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 1rem;
+  background-color: var(--card-bg);
+  /* حذف بوردر پایین و اضافه کردن پدینگ */
+  border-bottom: none;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.6rem 0.5rem;
+  background: var(--background); /* پس‌زمینه متفاوت */
+  border: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  border-radius: 12px; /* گرد کردن */
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab:hover {
+  background: var(--border);
+  color: var(--foreground);
+  transform: translateY(-2px);
+}
+
+.activeTab {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3); /* سایه رنگی */
+}
+.activeTab:hover {
+  background: var(--primary); /* در حالت اکتیو رنگ عوض نشود */
+  color: white;
+}
+.tabContent {
+  background-color: var(--card-bg);
+  min-height: 200px;
+}
+
+/* --- گرید مدیا (جایی که مشکل داشت) --- */
+.mediaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 ستون مساوی */
+  gap: 2px;
+}
+
+.mediaItem {
+  position: relative; /* <--- حیاتی: این خط باعث می‌شود عکس داخل مربع بماند */
+  aspect-ratio: 1 / 1; /* مربع کامل */
+  cursor: pointer;
+  background-color: var(--border); /* رنگ زمینه تا عکس لود شود */
+}
+
+.mediaImg {
+  object-fit: cover;
+  transition: opacity 0.2s;
+}
+.mediaItem:hover .mediaImg { opacity: 0.8; }
+
+.emptyState {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+@keyframes slideOver {
+  from { transform: translateX(100%); } 
+  to { transform: translateX(0); }
+}
+[dir="rtl"] .panel { animation-name: slideOverRTL; }
+@keyframes slideOverRTL {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* --- موبایل --- */
+@media (max-width: 768px) {
+  .panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    border-left: none;
+    z-index: 50; /* روی هدر چت بیاید */
+  }
+
+  .desktopHeader { display: none; }
+  .mobileHeader { display: flex; }
+}

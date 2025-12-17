@@ -1,3 +1,5 @@
+/* src/components/homepage/Header/styles.module.css */
+
 .header {
   position: fixed;
   top: 0;
@@ -6,15 +8,21 @@
   z-index: 50;
   padding: 1.5rem 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background: transparent; /* در حالت عادی شفاف */
+  
+  /* حالت عادی (بالای صفحه): شفاف */
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
 }
 
 /* وقتی اسکرول شد */
 .scrolled {
-  background: rgba(5, 5, 5, 0.8);
+  /* استفاده از متغیر نوبار که در globals تعریف کردیم */
+  background-color: var(--nav-bg); 
   backdrop-filter: blur(12px);
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* بردر متغیر برای جداسازی از محتوا */
+  border-bottom: 1px solid var(--card-border); 
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .container {
@@ -29,9 +37,11 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #fff;
+  /* رنگ متن لوگو باید هوشمند باشد */
+  color: var(--foreground); 
   text-decoration: none;
   letter-spacing: -0.5px;
+  transition: color 0.3s ease;
 }
 
 .nav {
@@ -50,16 +60,24 @@
 }
 
 .navLink {
-  color: #a1a1aa; /* خاکستری روشن */
+  /* استفاده از رنگ خاکستری هوشمند */
+  color: var(--text-muted); 
   text-decoration: none;
   font-size: 0.95rem;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: all 0.2s ease;
 }
 
 .navLink:hover {
-  color: #fff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  /* در هاور رنگ اصلی (بنفش) یا رنگ متن اصلی شود */
+  color: var(--primary);
+  /* سایه متن را حذف یا ملایم کردم چون در حالت لایت زشت می‌شود */
+  text-shadow: 0 0 20px var(--primary); 
+}
+
+/* در حالت لایت سایه متن نداشته باشد */
+:global([data-theme='light']) .navLink:hover {
+  text-shadow: none;
 }
 
 .actions {
@@ -69,17 +87,22 @@
 }
 
 .loginBtn {
-  background: #fff;
-  color: #000;
-  padding: 0.5rem 1.2rem;
+  /* دکمه "ورود" باید متضاد پس‌زمینه باشد */
+  background-color: var(--foreground); /* در دارک: سفید، در لایت: سیاه */
+  color: var(--background); /* در دارک: سیاه، در لایت: سفید */
+  
+  padding: 0.6rem 1.5rem;
   border-radius: 99px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .loginBtn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  /* در هاور کمی شفافیت یا تغییر رنگ */
+  opacity: 0.9;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }

@@ -1,0 +1,63 @@
+/* src/components/ThemeSwitcher/styles.module.css */
+.switcherButton {
+  background-color: transparent; /* در موبایل معمولا شفاف شیک‌تر است */
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 44px; /* افزایش به ۴۴ پیکسل (استاندارد اپل/گوگل برای لمس) */
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  color: var(--foreground);
+  /* جلوگیری از زوم ناخواسته یا هایلایت آبی در موبایل */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.iconContainer {
+  position: relative;
+  width: 24px; /* آیکون کمی بزرگتر برای وضوح بیشتر */
+  height: 24px;
+}
+
+.sunIcon,
+.moonIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.3s ease;
+}
+
+/* فقط در دستگاه‌هایی که موس دارند افکت هاور اعمال شود */
+@media (hover: hover) {
+  .switcherButton:hover {
+    background-color: var(--card);
+    border-color: var(--primary);
+  }
+}
+
+/* حالت پیش‌فرض (لایت - خورشید دیده شود) */
+.sunIcon {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+.moonIcon {
+  transform: rotate(90deg) scale(0);
+  opacity: 0;
+}
+
+/* حالت دارک (ماه دیده شود) */
+/* وقتی اتریبیوت دیتا-تم دارک است، این استایل‌ها روی فرزندان اعمال شود */
+:global([data-theme='dark']) .sunIcon {
+  transform: rotate(-90deg) scale(0);
+  opacity: 0;
+}
+:global([data-theme='dark']) .moonIcon {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}

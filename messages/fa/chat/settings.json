@@ -1,0 +1,20 @@
+{
+  "title": "تنظیمات",
+  "theme": "پوسته",
+  "language": "زبان",
+  "notifications": "اعلانات",
+  "privacy": "حریم خصوصی و امنیت",
+  "logout": "خروج از حساب",
+  "appearance": {
+    "title": "ظاهر و قالب",
+    "preview_msg": "سلام! این پیش‌نمایش تم شماست",
+    "theme_mode": "حالت نمایش",
+    "light": "روشن",
+    "dark": "تاریک",
+    "system": "سیستم",
+    "accent_color": "رنگ اصلی",
+    "font_size": "اندازه متن",
+    "chat_wallpaper": "پس‌زمینه چت"
+  },
+  "active_sessions":"نشست های فعال"
+}

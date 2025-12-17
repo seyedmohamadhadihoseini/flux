@@ -1,23 +1,44 @@
-// src/components/Features/index.tsx
+import { useTranslations } from 'next-intl';
 import styles from './styles.module.css';
 
-const featuresList = [
-  { title: 'رمزنگاری کامل', desc: 'پیام‌های شما فقط بین شما و مخاطبتان باقی می‌ماند.' },
-  { title: 'سرعت نور', desc: 'بدون تاخیر، حتی با اینترنت ضعیف پیام بفرستید.' },
-  { title: 'طراحی سیال', desc: 'تجربه‌ای روان با انیمیشن‌های ۶۰ فریم بر ثانیه.' },
-];
-
 const Features = () => {
+  const t = useTranslations('home.features');
+
+  // لیست فیچرها را اینجا می‌سازیم تا به هوک t دسترسی داشته باشیم
+  const featuresList = [
+    { 
+      key: 'encryption',
+      title: t('items.encryption.title'), 
+      desc: t('items.encryption.desc') 
+    },
+    { 
+      key: 'speed',
+      title: t('items.speed.title'), 
+      desc: t('items.speed.desc') 
+    },
+    { 
+      key: 'design',
+      title: t('items.design.title'), 
+      desc: t('items.design.desc') 
+    },
+  ];
+
   return (
     <section id="features" className={styles.container}>
-      <h2 className={styles.heading}>چرا Aura؟</h2>
-      <div className={styles.grid}>
-        {featuresList.map((item, index) => (
-          <div key={index} className={styles.card}>
-            <h3>{item.title}</h3>
-            <p>{item.desc}</p>
-          </div>
-        ))}
+      <div className={styles.inner}>
+        <h2 className={styles.heading}>{t('heading')}</h2>
+        
+        <div className={styles.grid}>
+          {featuresList.map((item) => (
+            <div key={item.key} className={styles.card}>
+              {/* یک آیکون تزئینی کوچک بالای هر کارت */}
+              <div className={styles.iconLine} />
+              
+              <h3 className={styles.title}>{item.title}</h3>
+              <p className={styles.desc}>{item.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

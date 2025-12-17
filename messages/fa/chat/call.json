@@ -1,0 +1,17 @@
+{
+  "incoming_voice": "تماس صوتی ورودی...",
+  "incoming_video": "تماس تصویری ورودی...",
+  "outgoing_voice": "در حال تماس صوتی...",
+  "outgoing_video": "در حال تماس تصویری...",
+  "connected": "متصل شد",
+  "ended": "تماس پایان یافت",
+  "reconnecting": "در حال اتصال مجدد...",
+  "mute": "بی‌صدا",
+  "unmute": "صدا‌دار",
+  "video_on": "ویدیو",
+  "video_off": "بدون ویدیو",
+  "speaker": "اسپیکر",
+  "end_call": "قطع تماس",
+  "answer": "پاسخ",
+  "decline": "رد تماس"
+}

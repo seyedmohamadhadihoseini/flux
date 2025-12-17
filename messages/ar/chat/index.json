@@ -1,0 +1,89 @@
+{
+  "actions": {
+    "reply": "رد",
+    "copy": "نسخ النص",
+    "forward": "إعادة توجيه",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "delete_confirm": "حذف للجميع؟"
+  },
+  "input": {
+    "placeholder": "اكتب رسالة...",
+    "editing": "جاري تعديل الرسالة..."
+  },
+  "profile_info": {
+    "title": "معلومات المستخدم",
+    "username": "اسم المستخدم",
+    "bio": "سيرة شخصية",
+    "notifications": "الإشعارات",
+    "common_groups": "المجموعات المشتركة",
+    "media_tabs": {
+      "media": "وسائط",
+      "files": "ملفات",
+      "links": "روابط",
+      "voice": "صوت"
+    }
+  },
+  "preview": {
+    "title": "إرسال ملف",
+    "caption_placeholder": "أضف تعليقاً...",
+    "send": "إرسال",
+    "cancel": "إلغاء",
+    "file_type": "ملف"
+  },
+  "voice": {
+    "recording": "جاري التسجيل...",
+    "cancel": "اسحب للإلغاء",
+    "release": "أفلت للإرسال"
+  },
+  "lightbox": {
+    "of": "من"
+  },
+  "voice_draft": {
+    "title": "رسالة صوتية",
+    "cancel": "إلغاء"
+  },
+  "sticky_player": {
+    "playing": "تشغيل",
+    "close": "إغلاق"
+  },
+  "recorder": {
+    "recording": "جارٍ التسجيل...",
+    "cancel": "إلغاء",
+    "stop_hint": "توقف للمراجعة",
+    "caption_placeholder": "أضف شرحاً...",
+    "send": "إرسال",
+    "review_title": "مراجعة الصوت",
+    "title": "الوصول إلى الميكروفون مرفوض",
+    "description": "لإرسال رسائل صوتية، يحتاج المتصفح إلى الوصول للميكروفون. يرجى تفعيله من إعدادات المتصفح.",
+    "allow_btn": "فهمت",
+    "settings_help": "كيفية التفعيل؟"
+  },
+  "permissions": {
+    "title": "الوصول إلى الميكروفون مرفوض",
+    "description": "لإرسال رسائل صوتية، يحتاج المتصفح إلى الوصول للميكروفون. يرجى تفعيله من إعدادات المتصفح.",
+    "allow_btn": "فهمت",
+    "settings_help": "كيفية التفعيل؟",
+    "recording": "جارٍ التسجيل...",
+    "cancel": "إلغاء",
+    "stop_hint": "توقف للمراجعة",
+    "caption_placeholder": "أضف شرحاً...",
+    "send": "إرسال",
+    "review_title": "مراجعة الصوت"
+  },
+  "chat": {
+    "recorder": {
+      "recording": "جارٍ التسجيل...",
+      "cancel": "إلغاء",
+      "stop_hint": "توقف للمراجعة",
+      "caption_placeholder": "أضف شرحاً...",
+      "voice_message": "رسالة صوتية"
+    },
+    "permissions": {
+      "title": "الوصول للميكروفون مرفوض",
+      "description": "المتصفح لا يملك صلاحية الوصول للميكروفون. يرجى النقر على رمز القفل 🔒 بجانب شريط العنوان وتفعيل الميكروفون، ثم اضغط على إعادة التحقق.",
+      "retry_btn": "إعادة التحقق",
+      "cancel_btn": "إلغاء"
+    }
+  }
+}

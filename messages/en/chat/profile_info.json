@@ -1,0 +1,14 @@
+{
+  "title": "User Info",
+  "username": "Username",
+  "bio": "Bio",
+  "notifications": "Notifications",
+  "common_groups": "Common Groups",
+  "media_tabs": {
+    "media": "Media",
+    "files": "Files",
+    "groups": "Groups",
+    "voice": "Voice",
+    "links": "Links"
+  }
+}

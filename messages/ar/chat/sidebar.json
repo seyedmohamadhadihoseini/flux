@@ -1,0 +1,21 @@
+{
+  "search_placeholder": "بحث...",
+  "toggle_sidebar": "القائمة",
+  "filters": {
+    "all": "الكل",
+    "personal": "شخصي",
+    "group": "مجموعات",
+    "channel": "قنوات"
+  },
+  "no_chats": "لا توجد محادثات بعد.",
+  "online": "متصل",
+  "last_seen": "آخر ظهور",
+  "tabs": {
+    "chats": "الدردشات",
+    "contacts": "جهات الاتصال",
+    "settings": "الإعدادات"
+  },
+  "settings": {
+    "logout": "تسجيل الخروج"
+  }
+}

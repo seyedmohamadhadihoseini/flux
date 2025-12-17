@@ -1,0 +1,17 @@
+{
+  "incoming_voice": "مكالمة صوتية واردة...",
+  "incoming_video": "مكالمة فيديو واردة...",
+  "outgoing_voice": "جاري الاتصال...",
+  "outgoing_video": "مكالمة فيديو...",
+  "connected": "متصل",
+  "ended": "انتهت المكالمة",
+  "reconnecting": "جاري إعادة الاتصال...",
+  "mute": "كتم",
+  "unmute": "إلغاء الكتم",
+  "video_on": "فيديو",
+  "video_off": "بدون فيديو",
+  "speaker": "مكبر الصوت",
+  "end_call": "إنهاء",
+  "answer": "رد",
+  "decline": "رفض"
+}

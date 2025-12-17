@@ -1,212 +1,112 @@
-
-
+/* update-contacts-crud.js */
 const fs = require('fs');
 const path = require('path');
 
-// مسیر اصلی پوشه messages
-const messagesDir = path.join(__dirname, 'messages');
+const locales = ['fa', 'en', 'ar'];
+// مسیر دقیق بر اساس ساختار جدید شما
+const basePath = path.join(__dirname, 'messages');
 
-// داده‌های ترجمه برای هر سه زبان
-const translations = {
-  // === فارسی ===
-  fa: {
-    'nav.json': {
-      security: "امنیت",
-      features: "امکانات",
-      download: "دانلود",
-      login: "ورود به پنل"
-    },
-    'footer.json': {
-      brandDescription: "نسل جدید پیام‌رسان‌هاست. بدون محدودیت و با امنیت کامل.",
-      columns: {
-        product: "محصول",
-        legal: "قوانین",
-        social: "شبکه‌های اجتماعی"
-      },
-      links: {
-        download: "دانلود اپلیکیشن",
-        features: "ویژگی‌ها",
-        privacy: "حریم خصوصی",
-        terms: "شرایط استفاده"
-      }
-    },
-    'common.json': {
-      buttons: {
-        confirm: "تایید",
-        cancel: "لغو",
-        submit: "ارسال"
-      },
-      errors: {
-        general: "خطایی رخ داده است"
-      }
-    },
-    // پوشه home
-    'home/hero.json': {
-      titleStart: "ارتباطی سریع، امن و",
-      titleGradient: "فراتر از انتظار",
-      titleEnd: "",
-      description: "نسل جدید پیام‌رسان‌هاست. بدون محدودیت، با امنیت رمزنگاری شده و رابط کاربری که عاشقش می‌شوید.",
-      buttons: {
-        start: "شروع کنید (رایگان)",
-        demo: "مشاهده دمو"
-      }
-    },
-    // پوشه dashboard
-    'dashboard/index.json': {
-      welcome: "به داشبورد خوش آمدید",
-      logout: "خروج از حساب"
-    },
-    'dashboard/settings.json': {
-      title: "تنظیمات",
-      theme: "تغییر پوسته",
-      notifications: "مدیریت اعلانات"
-    }
-  },
-
-  // === انگلیسی ===
-  en: {
-    'nav.json': {
-      security: "Security",
-      features: "Features",
-      download: "Download",
-      login: "Login to Panel"
-    },
-    'footer.json': {
-      brandDescription: "The next generation of messengers. No limits, fully secure.",
-      columns: {
-        product: "Product",
-        legal: "Legal",
-        social: "Social"
-      },
-      links: {
-        download: "Download App",
-        features: "Features",
-        privacy: "Privacy Policy",
-        terms: "Terms of Service"
-      }
-    },
-    'common.json': {
-      buttons: {
-        confirm: "Confirm",
-        cancel: "Cancel",
-        submit: "Submit"
-      },
-      errors: {
-        general: "An error occurred"
-      }
-    },
-    'home/hero.json': {
-      titleStart: "Fast, Secure, and",
-      titleGradient: "Beyond Expectations",
-      titleEnd: "Communication",
-      description: "The next-gen messenger. No limits, encrypted security, and a UI you'll fall in love with.",
-      buttons: {
-        start: "Get Started (Free)",
-        demo: "View Demo"
-      }
-    },
-    'dashboard/index.json': {
-      welcome: "Welcome to Dashboard",
-      logout: "Logout"
-    },
-    'dashboard/settings.json': {
-      title: "Settings",
-      theme: "Change Theme",
-      notifications: "Manage Notifications"
-    }
-  },
-
-  // === عربی ===
-  ar: {
-    'nav.json': {
-      security: "الأمان",
-      features: "المميزات",
-      download: "تحميل",
-      login: "تسجيل الدخول"
-    },
-    'footer.json': {
-      brandDescription: "الجيل القادم من برامج المراسلة. بلا حدود وبأمان تام.",
-      columns: {
-        product: "المنتج",
-        legal: "قانوني",
-        social: "تواصل اجتماعي"
-      },
-      links: {
-        download: "تحميل التطبيق",
-        features: "المميزات",
-        privacy: "سياسة الخصوصية",
-        terms: "شروط الخدمة"
-      }
-    },
-    'common.json': {
-      buttons: {
-        confirm: "تأكيد",
-        cancel: "إلغاء",
-        submit: "إرسال"
-      },
-      errors: {
-        general: "حدث خطأ ما"
-      }
-    },
-    'home/hero.json': {
-      titleStart: "تواصل سريع وآمن",
-      titleGradient: "يفوق التوقعات",
-      titleEnd: "",
-      description: "الجيل الجديد من برامج المراسلة. بلا حدود، أمان مشفر، وواجهة مستخدم ستحبها.",
-      buttons: {
-        start: "ابدأ الآن (مجاناً)",
-        demo: "شاهد العرض"
-      }
-    },
-    'dashboard/index.json': {
-      welcome: "مرحبًا بك في لوحة التحكم",
-      logout: "تسجيل خروج"
-    },
-    'dashboard/settings.json': {
-      title: "الإعدادات",
-      theme: "تغيير المظهر",
-      notifications: "إدارة الإشعارات"
+const newTranslations = {
+  // ما اینجا "contacts" را کلید اصلی قرار می‌دهیم
+  // چون فایل contacts.json خودش روت است، محتوا مستقیم می‌رود داخلش
+  chat: {
+    contacts: {
+      title: "مخاطبین",
+      search_placeholder: "جستجو...",
+      add_contact: "افزودن مخاطب",
+      online: "آنلاین",
+      last_seen: "آخرین بازدید",
+      empty_search: "مخاطبی یافت نشد.",
+      edit: "ویرایش",
+      delete: "حذف",
+      chat: "چت",
+      save: "ذخیره",
+      cancel: "لغو",
+      name_label: "نام مخاطب",
+      phone_label: "شماره تلفن / آیدی",
+      confirm_delete: "آیا از حذف این مخاطب اطمینان دارید؟",
+      edit_contact: "ویرایش مخاطب",
+      new_contact: "مخاطب جدید"
     }
   }
 };
 
-// تابع اصلی برای ساخت فایل‌ها
-async function createStructure() {
-  console.log('🚀 Starting i18n setup...');
-
-  // ساخت پوشه اصلی messages اگر نباشد
-  if (!fs.existsSync(messagesDir)) {
-    fs.mkdirSync(messagesDir);
-  }
-
-  // پیمایش روی زبان‌ها
-  for (const [lang, files] of Object.entries(translations)) {
-    const langDir = path.join(messagesDir, lang);
-    
-    // ساخت پوشه زبان (en, fa, ar)
-    if (!fs.existsSync(langDir)) {
-      fs.mkdirSync(langDir);
+const localizedValues = {
+  en: {
+    contacts: {
+      title: "Contacts",
+      search_placeholder: "Search...",
+      add_contact: "Add Contact",
+      online: "Online",
+      last_seen: "Last seen",
+      empty_search: "No contacts found.",
+      edit: "Edit",
+      delete: "Delete",
+      chat: "Chat",
+      save: "Save",
+      cancel: "Cancel",
+      name_label: "Contact Name",
+      phone_label: "Phone / ID",
+      confirm_delete: "Are you sure?",
+      edit_contact: "Edit Contact",
+      new_contact: "New Contact"
     }
-
-    // پیمایش روی فایل‌ها
-    for (const [filePath, content] of Object.entries(files)) {
-      // ترکیب مسیر کامل فایل
-      const fullPath = path.join(langDir, filePath);
-      const dirName = path.dirname(fullPath);
-
-      // اگر فایل داخل پوشه باشد (مثل home/hero.json)، پوشه والدش را بساز
-      if (!fs.existsSync(dirName)) {
-        fs.mkdirSync(dirName, { recursive: true });
-      }
-
-      // نوشتن فایل جیسون
-      fs.writeFileSync(fullPath, JSON.stringify(content, null, 2), 'utf8');
-      console.log(`✅ Created: messages/${lang}/${filePath}`);
+  },
+  ar: {
+    contacts: {
+      title: "جهات الاتصال",
+      search_placeholder: "بحث...",
+      add_contact: "إضافة",
+      online: "متصل",
+      last_seen: "آخر ظهور",
+      empty_search: "لم يتم العثور على نتائج.",
+      edit: "تعديل",
+      delete: "حذف",
+      chat: "دردشة",
+      save: "حفظ",
+      cancel: "إلغاء",
+      name_label: "الاسم",
+      phone_label: "الهاتف",
+      confirm_delete: "هل أنت متأكد؟",
+      edit_contact: "تعديل",
+      new_contact: "جديد"
     }
   }
+};
 
-  console.log('\n✨ All files generated successfully!');
-  console.log('👉 You can now delete "setup-i18n.js".');
+function mergeDeep(target, source) {
+  for (const key in source) {
+    if (source[key] instanceof Object && key in target) {
+      Object.assign(source[key], mergeDeep(target[key], source[key]));
+    }
+  }
+  Object.assign(target || {}, source);
+  return target;
 }
 
-createStructure();
+locales.forEach(locale => {
+  // مسیر هدف: messages/[locale]/chat/contacts.json
+  const dirPath = path.join(basePath, locale, 'chat');
+  const filePath = path.join(dirPath, 'contacts.json');
+
+  if (!fs.existsSync(dirPath)) {
+    fs.mkdirSync(dirPath, { recursive: true });
+  }
+
+  let content = {};
+  if (fs.existsSync(filePath)) {
+    try {
+      content = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    } catch (e) {}
+  }
+
+  let specific = JSON.parse(JSON.stringify(newTranslations.chat.contacts));
+  if (locale === 'en') specific = localizedValues.en.contacts;
+  if (locale === 'ar') specific = localizedValues.ar.contacts;
+
+  // ادغام محتوا
+  mergeDeep(content, specific);
+
+  fs.writeFileSync(filePath, JSON.stringify(content, null, 2));
+  console.log(`✅ Updated: ${filePath}`);
+});

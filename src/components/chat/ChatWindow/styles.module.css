@@ -1,0 +1,139 @@
+/* src/components/chat/ChatWindow/styles.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background-color: var(--background);
+  overflow: hidden; /* جلوگیری از اسکرول کلی */
+}
+
+/* --- Header --- */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--card-border);
+  height: 64px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.headerInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-width: 0;
+}
+
+.headerProfile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.headerProfile:hover { background-color: var(--border); }
+
+.backBtn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+  cursor: pointer;
+  padding: 4px;
+}
+[dir="ltr"] .backBtn { transform: rotate(180deg); }
+
+.avatarWrapper { position: relative; width: 40px; height: 40px; flex-shrink: 0; }
+.avatar { border-radius: 50%; object-fit: cover; }
+.statusDot {
+  position: absolute; bottom: 0; right: 0; width: 10px; height: 10px;
+  background-color: #22c55e; border: 2px solid var(--card-bg); border-radius: 50%;
+}
+
+.userInfo { display: flex; flex-direction: column; justify-content: center; overflow: hidden; }
+.username { font-weight: 700; font-size: 0.95rem; color: var(--foreground); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.userStatus { font-size: 0.75rem; color: var(--primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0.9; }
+
+.iconBtn {
+  width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+  background: transparent; border: none; color: var(--text-muted);
+  cursor: pointer; border-radius: 50%; transition: background 0.2s;
+}
+.iconBtn:hover { background-color: var(--border); color: var(--foreground); }
+
+/* --- Chat Body (مهمترین بخش) --- */
+.chatBody {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden; /* جلوگیری از بیرون زدگی */
+  width: 100%;
+}
+
+/* کانتینر پیام‌ها و اینپوت */
+.chatMainArea {
+  flex: 1; /* تمام فضای باقی‌مانده را بگیرد */
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* حیاتی برای فلکس‌باکس تو در تو */
+  position: relative;
+}
+
+.messagesList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .backBtn { display: flex; }
+}
+
+
+.footerWrapper {
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+}
+
+.voiceDraft {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--card-border);
+  animation: slideUp 0.2s;
+}
+
+.voiceDraftInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--foreground);
+}
+
+.voiceCancelBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px;
+}
+.voiceCancelBtn:hover { color: #ef4444; }

@@ -1,0 +1,237 @@
+/* Container اصلی حباب */
+.messageRow {
+  display: flex;
+  margin-bottom: 8px;
+  position: relative;
+  width: 100%;
+}
+
+.sentRow {
+  justify-content: flex-end;
+}
+
+.receivedRow {
+  justify-content: flex-start;
+}
+
+/* آواتار در گروه */
+.groupAvatar {
+  margin-inline-end: 8px;
+  align-self: flex-end;
+  flex-shrink: 0;
+}
+
+.avatarImg {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* حباب پیام */
+.bubble {
+  max-width: 75%;
+  min-width: 120px; /* حداقل عرض برای جای گرفتن ساعت */
+  padding: 8px 12px;
+  border-radius: 16px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  transition: background-color 0.2s;
+}
+
+.sentBubble {
+  background-color: var(--primary);
+  color: white; /* رنگ متن پیام‌های ارسالی */
+  border-bottom-left-radius: 4px; /* گوشه تیز برای زیبایی */
+}
+
+.receivedBubble {
+  background-color: var(--card-bg);
+  color: var(--foreground);
+  border: 1px solid var(--card-border);
+  border-bottom-right-radius: 4px;
+}
+
+.senderName {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+/* --- استایل متن پیام (بخش مهم) --- */
+.text {
+  margin: 0;
+  padding: 0;
+  font-size: 0.95rem;
+  line-height: 1.6; /* فاصله خطوط مناسب */
+  
+  /* جادوی چند خطی شدن: */
+  white-space: pre-wrap;      /* حفظ اینترها و فاصله‌ها */
+  word-wrap: break-word;      /* شکستن کلمات طولانی */
+  word-break: break-word;     /* اطمینان بیشتر برای شکستن */
+  overflow-wrap: break-word;
+}
+
+/* --- مدیا (عکس/ویدیو) --- */
+.mediaContainer {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 4px;
+  position: relative;
+}
+
+.image, .video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.caption {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  /* کپشن هم باید چند خطی باشد */
+  white-space: pre-wrap; 
+  word-wrap: break-word;
+  padding: 0 4px;
+}
+
+/* --- فایل --- */
+.fileContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0,0,0,0.1);
+  padding: 8px;
+  border-radius: 8px;
+}
+.sentBubble .fileContainer { background: rgba(255,255,255,0.2); }
+
+.fileIcon { font-size: 1.5rem; }
+
+.fileInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+}
+
+.fileName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fileSize { font-size: 0.75rem; opacity: 0.8; }
+
+.downloadBtn {
+  color: inherit;
+  font-size: 1.2rem;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.downloadBtn:hover { background: rgba(0,0,0,0.1); }
+
+/* --- اطلاعات متا (ساعت و تیک) --- */
+.metaInfo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  float: right; /* ساعت سمت راست پایین پیام قرار می‌گیرد */
+  margin-top: 4px;
+  margin-left: -4px; /* کمی تنظیم موقعیت */
+  opacity: 0.7;
+  font-size: 0.7rem;
+  user-select: none;
+}
+
+[dir="rtl"] .metaInfo {
+  float: left; /* در فارسی سمت چپ می‌رود */
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+/* وضعیت تیک‌ها */
+.doubleCheck { color: #4ade80; /* سبز برای خوانده شده */ }
+.sentBubble .doubleCheck { color: #dcfce7; } /* رنگ روشن‌تر روی پس‌زمینه تیره */
+
+/* --- منوی پیام (Context Menu) --- */
+.messageMenu {
+  position: absolute;
+  top: 100%;
+  right: 0; /* باز شدن به سمت چپ */
+  z-index: 50;
+  min-width: 160px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  animation: scaleIn 0.15s ease-out;
+}
+
+/* اگر پیام سمت چپ است (دریافتی)، منو سمت چپ باز شود */
+.receivedBubble .messageMenu {
+  right: auto;
+  left: 0;
+}
+
+.messageMenu button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 12px;
+  border: none;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: start;
+  transition: background 0.2s;
+}
+
+.messageMenu button:hover {
+  background-color: var(--border);
+}
+
+.menuDivider {
+  height: 1px;
+  background-color: var(--border);
+  margin: 4px 0;
+}
+
+.deleteOption {
+  color: var(--destructive) !important;
+}
+.deleteOption:hover {
+  background-color: rgba(239, 68, 68, 0.1) !important;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9) translateY(-10px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* استایل کانتینر ویس */
+.voiceContainer {
+  padding: 4px 0;
+  min-width: 260px;
+}
+
+.voiceCaption {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  padding: 0 4px;
+  white-space: pre-wrap; /* کپشن ویس هم چندخطی شود */
+  word-wrap: break-word;
+}

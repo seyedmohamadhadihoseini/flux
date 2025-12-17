@@ -1,97 +1,135 @@
-/* LanguageSwitcher.module.css */
+/* src/components/LanguageSwitcher/styles.module.css */
 
 .container {
   position: relative;
-  /* این رنگ متن دکمه اصلی در هدر است. اگر هدر تیره است white بگذارید */
-  color: inherit; 
+  z-index: 50;
 }
 
-/* دکمه اصلی که در هدر دیده می‌شود */
+/* --- دکمه اصلی (Trigger) --- */
 .triggerButton {
   display: flex;
   align-items: center;
-  gap: 8px;
-  background: transparent;
-  border: none;
-  color: inherit; /* رنگ را از هدر می‌گیرد */
-  padding: 8px;
+  gap: 0.5rem; /* gap-2 */
+  padding: 0.375rem 0.75rem; /* py-1.5 px-3 */
+  border-radius: 0.5rem; /* rounded-lg */
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--text-muted);
+  transition: all 0.2s ease;
   cursor: pointer;
-  font-family: inherit;
-  font-size: 0.95rem;
+}
+
+.triggerButton:hover {
+  background-color: var(--card-bg);
+  color: var(--foreground);
+}
+
+/* حالت باز بودن دکمه */
+.triggerButtonOpen {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+  color: var(--foreground);
 }
 
 .flagIcon {
-  font-size: 1.4rem; /* اندازه ایموجی پرچم */
-  line-height: 1;
+  width: 20px;
+  height: 15px;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
 }
 
-/* کادر سفید بازشونده */
-.dropdownMenu {
+.label {
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+}
+
+/* --- آیکون فلش (Chevron) --- */
+.chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.2s;
+}
+
+.chevronRotate {
+  transform: rotate(180deg);
+}
+
+/* --- لیست بازشو (Dropdown) --- */
+.dropdown {
   position: absolute;
-  top: 100%; /* دقیقا زیر دکمه */
-  margin-top: 10px; /* کمی فاصله از هدر */
-  background-color: #ffffff; /* پس زمینه سفید طبق عکس نمونه */
-  color: #333333; /* متن مشکی */
-  border-radius: 8px; /* گوشه‌های گرد */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* سایه ملایم */
-  padding: 8px 0;
-  min-width: 180px; /* پهن بودن منو طبق درخواست */
-  z-index: 100;
+  top: 100%;
+  margin-top: 0.5rem;
+  width: 10rem; /* w-40 */
+  padding: 0.25rem;
   
-  /* انیمیشن ساده برای باز شدن */
-  opacity: 0;
-  transform: translateY(-10px);
-  animation: fadeSlideIn 0.2s forwards ease-out;
+  /* استفاده از متغیرهای تم برای رنگ‌ها */
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-/* تنظیم جهت باز شدن بر اساس زبان فعلی */
-.rtlDropdown { left: 0; }
-.ltrDropdown { right: 0; }
+/* جهت باز شدن منو بر اساس زبان */
+.alignLeft {
+  left: 0;
+}
 
-/* آیتم‌های داخل لیست */
-.languageItem {
+.alignRight {
+  right: 0;
+}
+
+/* --- آیتم‌های داخل لیست --- */
+.itemButton {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* فاصله بین نام زبان و تیک */
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
   width: 100%;
-  padding: 10px 16px;
+  border-radius: 0.375rem;
+  transition: all 0.2s;
+  font-size: 0.75rem; /* text-xs */
   border: none;
   background: transparent;
-  color: #555;
   cursor: pointer;
-  font-family: inherit;
-  font-size: 0.9rem;
-  transition: background-color 0.2s;
-  text-align: inherit;
+  color: var(--text-muted);
+  text-align: start;
 }
 
-.languageItem:hover {
-  background-color: #f5f5f5; /* رنگ طوسی روشن هنگام هاور */
+.itemButton:hover {
+  background-color: var(--border); /* کمی تیره‌تر/روشن‌تر از پس‌زمینه */
+  color: var(--foreground);
 }
 
-/* آیتم فعال (زبانی که الان انتخاب شده) */
+/* آیتم فعال (انتخاب شده) */
 .activeItem {
-  color: #000;
-  font-weight: 600;
-  background-color: #f9f9f9;
+  background-color: var(--primary); /* رنگ اصلی تم */
+  color: var(--button-text); /* متن سفید */
+  font-weight: bold;
 }
 
-.itemContent {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.activeItem:hover {
+  /* در حالت اکتیو، هاور نباید رنگ را تغییر دهد یا می‌تواند کمی روشن‌تر شود */
+  background-color: var(--primary-hover);
 }
 
-/* آیکون تیک سبز */
-.checkMark {
-  color: #22c55e; /* رنگ سبز */
+.itemFlag {
   width: 18px;
-  height: 18px;
+  height: 13px;
+  object-fit: cover;
+  border-radius: 2px;
 }
 
-@keyframes fadeSlideIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.itemName {
+  flex-grow: 1;
+}
+
+.checkMark {
+  color: var(--button-text); /* تیک سفید روی زمینه رنگی */
+  font-size: 0.8rem;
 }

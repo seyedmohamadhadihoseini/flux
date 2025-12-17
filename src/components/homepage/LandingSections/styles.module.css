@@ -1,11 +1,13 @@
-/* LandingSections.module.css */
+/* src/components/homepage/LandingSections/styles.module.css */
 
 /* --- تنظیمات کلی سکشن‌ها --- */
 .section {
   padding: 100px 20px;
   position: relative;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  /* بردر متغیر برای جدا کردن سکشن‌ها */
+  border-top: 1px solid var(--card-border);
+  background-color: var(--background);
 }
 
 .container {
@@ -18,19 +20,23 @@
   font-weight: 800;
   text-align: center;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, #fff, #a5b4fc);
+  /* گرادینت هوشمند: از رنگ متن اصلی به رنگ برند */
+  background: linear-gradient(to right, var(--foreground), var(--primary));
   background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block; /* برای رندر صحیح گرادینت */
 }
 
 .subtitle {
   text-align: center;
-  color: #9ca3af;
+  color: var(--text-muted); /* رنگ خاکستری هوشمند */
   margin-bottom: 4rem;
   font-size: 1.1rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  line-height: 1.6;
 }
 
 /* --- بخش امنیت (Security) --- */
@@ -41,7 +47,6 @@
   gap: 4rem;
 }
 
-/* در موبایل ستونی شود */
 @media (max-width: 768px) {
   .securityWrapper {
     flex-direction: column;
@@ -63,9 +68,11 @@
 .shieldIcon {
   width: 200px;
   height: 200px;
-  color: #8b5cf6; /* بنفش */
-  filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.4));
+  color: var(--primary); /* رنگ آیکون بنفش متغیر */
+  /* سایه هم‌رنگ با برند */
+  filter: drop-shadow(0 0 30px var(--primary));
   animation: float 6s ease-in-out infinite;
+  opacity: 0.9;
 }
 
 @keyframes float {
@@ -81,18 +88,20 @@
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--card-bg); /* پس‌زمینه کارت متغیر */
+  border: 1px solid var(--card-border);
   backdrop-filter: blur(10px);
   padding: 2rem;
   border-radius: 1.5rem;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  /* در حالت لایت سایه نرم داشته باشد */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--primary); /* در هاور رنگی شود */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .userInfo {
@@ -106,16 +115,17 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #6366f1, #a855f7);
+  background: linear-gradient(135deg, var(--primary), #a855f7);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   font-size: 1.2rem;
+  color: #fff; /* متن داخل آواتار همیشه سفید باشد */
 }
 
 .quote {
-  color: #d1d5db;
+  color: var(--text-muted);
   line-height: 1.6;
   font-style: italic;
 }
@@ -130,8 +140,8 @@
 }
 
 .faqItem {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 1rem;
   overflow: hidden;
   transition: all 0.3s;
@@ -145,7 +155,7 @@
   align-items: center;
   background: transparent;
   border: none;
-  color: white;
+  color: var(--foreground); /* تیتر سوال */
   font-size: 1.1rem;
   font-weight: 500;
   cursor: pointer;
@@ -157,19 +167,20 @@
   overflow: hidden;
   transition: max-height 0.3s ease-out, padding 0.3s;
   padding: 0 1.5rem;
-  color: #9ca3af;
+  color: var(--text-muted); /* متن جواب */
   line-height: 1.6;
 }
 
 .faqAnswer.open {
-  max-height: 200px; /* ارتفاع تقریبی */
+  max-height: 200px;
   padding-bottom: 1.5rem;
 }
 
 /* --- بخش دانلود (CTA) --- */
 .ctaSection {
   text-align: center;
-  background: radial-gradient(circle at center, rgba(124, 58, 237, 0.15) 0%, rgba(0,0,0,0) 70%);
+  /* یک گرادینت بسیار ملایم روی پس‌زمینه اصلی */
+  background: radial-gradient(circle at center, rgba(124, 58, 237, 0.1) 0%, transparent 70%);
 }
 
 .buttonsWrapper {
@@ -185,24 +196,30 @@
   align-items: center;
   gap: 10px;
   padding: 12px 24px;
-  background: white;
-  color: black;
+  
+  /* دکمه توپُر (Filled): رنگ متضاد با پس‌زمینه */
+  background-color: var(--foreground); 
+  color: var(--background);
+  
   border-radius: 12px;
   font-weight: 700;
   text-decoration: none;
-  transition: transform 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
 }
 
 .downloadBtn:hover {
   transform: scale(1.05);
+  opacity: 0.9;
 }
 
+/* دکمه توخالی (Outline) */
 .downloadBtn.outline {
   background: transparent;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--foreground);
+  border: 1px solid var(--card-border);
 }
 
 .downloadBtn.outline:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background-color: var(--card-bg);
+  border-color: var(--foreground);
 }

@@ -1,0 +1,121 @@
+/* کانتینر اصلی که داخل سایدبار لود می‌شود */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* هدر داخلی تنظیمات (برای دکمه برگشت و عنوان) */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 12px 8px; /* پدینگ پایین */
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--foreground);
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.backBtn:hover {
+  background-color: var(--border);
+  color: var(--foreground);
+}
+
+[dir="rtl"] .backIcon { transform: rotate(180deg); }
+[dir="rtl"] .chevronIcon { transform: rotate(180deg); }
+
+/* لیست آیتم‌ها */
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: start;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  color: var(--foreground);
+}
+
+.menuItem:hover {
+  background-color: var(--border);
+}
+
+.iconBox {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.label {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.chevronIcon {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  opacity: 0.6;
+}
+
+/* برای گزینه‌های انتخابی (مثل زبان) */
+.optionItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+.optionItem:hover {
+    border-color: var(--primary);
+}
+.activeOption {
+    border-color: var(--primary);
+    background-color: rgba(var(--primary-rgb), 0.05); /* فرض بر وجود متغیر */
+    color: var(--primary);
+    font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}

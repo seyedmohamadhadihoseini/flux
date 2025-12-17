@@ -1,0 +1,56 @@
+.layout {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--background);
+  position: relative; /* Context for absolute positioning on mobile */
+}
+
+.sidebar {
+  flex-shrink: 0;
+  height: 100%;
+  border-inline-end: 1px solid var(--card-border);
+  z-index: 1;
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+  background-color: var(--background);
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  z-index: 1;
+}
+
+/* --- Mobile (Max Width 768px) --- */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10; /* Sidebar is base layer */
+  }
+
+  /* When chat is NOT open (List view) */
+  .hiddenOnMobile { 
+     /* We don't use display:none here anymore for the main part to allow transitions if we wanted, 
+        but for simple visibility toggle: */
+     display: none !important;
+  }
+
+  /* When Chat IS open */
+  .main {
+    width: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20; /* Chat sits ON TOP of sidebar */
+    background-color: var(--background); /* Ensure solid background */
+  }
+}

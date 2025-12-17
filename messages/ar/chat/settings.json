@@ -1,0 +1,19 @@
+{
+  "title": "الإعدادات",
+  "theme": "المظهر",
+  "language": "اللغة",
+  "notifications": "الإشعارات",
+  "privacy": "الخصوصية والأمان",
+  "logout": "تسجيل الخروج",
+  "appearance": {
+    "title": "المظهر",
+    "preview_msg": "مرحباً! هذه معاينة للمظهر.",
+    "theme_mode": "وضع العرض",
+    "light": "فاتح",
+    "dark": "داكن",
+    "system": "النظام",
+    "accent_color": "اللون الرئيسي",
+    "font_size": "حجم النص",
+    "chat_wallpaper": "خلفية الدردشة"
+  }
+}

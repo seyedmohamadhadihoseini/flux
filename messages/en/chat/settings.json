@@ -1,0 +1,19 @@
+{
+  "title": "Settings",
+  "theme": "Theme",
+  "language": "Language",
+  "notifications": "Notifications",
+  "privacy": "Privacy & Security",
+  "logout": "Log out",
+  "appearance": {
+    "title": "Appearance",
+    "preview_msg": "Hello! This is your theme preview.",
+    "theme_mode": "Theme Mode",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "accent_color": "Accent Color",
+    "font_size": "Text Size",
+    "chat_wallpaper": "Chat Wallpaper"
+  }
+}

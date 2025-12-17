@@ -1,0 +1,300 @@
+/* --- Mini Player (Floating) --- */
+.miniContainer {
+  position: absolute;
+  top: 80px; /* زیر هدر */
+  right: 16px;
+  width: 280px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  z-index: 100;
+  animation: slideIn 0.3s ease-out;
+}
+[dir="rtl"] .miniContainer { right: auto; left: 16px; }
+
+.miniInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.miniAvatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.miniVideoPreview {
+  width: 40px; height: 50px;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+}
+.coverImg { object-fit: cover; }
+
+.miniText {
+  display: flex;
+  flex-direction: column;
+}
+
+.miniName { font-weight: 600; font-size: 0.9rem; }
+.miniStatus { font-size: 0.75rem; color: var(--primary); }
+
+.miniControls {
+  display: flex;
+  gap: 8px;
+}
+
+.miniEndBtn, .miniAnswerBtn, .maximizeBtn {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: none;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+
+.miniEndBtn { background: #ef4444; color: white; }
+.miniAnswerBtn { background: #22c55e; color: white; }
+.maximizeBtn { background: transparent; color: var(--text-muted); }
+
+/* --- Full Screen Overlay --- */
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  overflow: hidden;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1;
+}
+
+.bgImage {
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.1);
+}
+
+.bgOverlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* تاریکی روی عکس */
+}
+
+.container {
+  position: relative;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
+[dir="rtl"] .header { justify-content: flex-end; } /* آیکون مینی‌مایز همیشه گوشه است */
+
+.minimizeBtn {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.minimizeBtn:hover { background: rgba(255,255,255,0.3); }
+
+/* Main Content */
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatarSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.avatarWrapper {
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+}
+
+.pulsing {
+  animation: pulse-white 2s infinite;
+}
+
+.bigAvatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.callStatus {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Video Layout */
+.videoWrapper {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -1; /* زیر کنترلرها */
+}
+
+.remoteVideo {
+  width: 100%; height: 100%;
+  background: #1a1a1a;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.localVideo {
+  position: absolute;
+  bottom: 120px;
+  right: 20px;
+  width: 100px; height: 140px;
+  background: #333;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+[dir="rtl"] .localVideo { right: auto; left: 20px; }
+
+.placeholderVideo {
+  width: 100%; height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  color: #777; font-size: 0.8rem;
+}
+
+/* Controls */
+.controls {
+  padding-bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.incomingActions {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.answerBtn, .declineBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.answerBtn svg {
+  background: #22c55e;
+  padding: 16px;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+}
+
+.declineBtn svg {
+  background: #ef4444;
+  padding: 16px;
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+
+.shakeIcon {
+  animation: shake 1.5s infinite ease-in-out;
+}
+
+.activeActions {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  background: rgba(0,0,0,0.3);
+  padding: 16px 32px;
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.controlBtn {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.controlBtn:hover { background: rgba(255,255,255,0.3); }
+
+.activeState {
+  background: white;
+  color: #333;
+}
+
+.hangupBtn {
+  background: #ef4444;
+  border: none;
+  color: white;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: transform 0.2s;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+}
+.hangupBtn:hover { transform: scale(1.1); }
+
+@keyframes pulse-white {
+  0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+  70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(10deg); }
+  20% { transform: rotate(-10deg); }
+  30% { transform: rotate(10deg); }
+  40% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}

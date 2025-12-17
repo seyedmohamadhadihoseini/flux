@@ -1,0 +1,8 @@
+{
+  "title": "Profile Photos",
+  "set_main": "Set as Main",
+  "delete": "Delete Photo",
+  "add_new": "Add Photo",
+  "upload_hint": "Click to upload",
+  "confirm_delete": "Delete this photo?"
+}

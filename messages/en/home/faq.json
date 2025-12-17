@@ -1,0 +1,21 @@
+{
+  "title": "Frequently Asked Questions",
+  "items": {
+    "q1": {
+      "q": "Is Aura free to use?",
+      "a": "Yes, the core version of Aura is free forever. We also have pro plans for businesses."
+    },
+    "q2": {
+      "q": "How is message security guaranteed?",
+      "a": "We use a double-layer encryption protocol. Encryption keys are stored only on your device."
+    },
+    "q3": {
+      "q": "Can I use it on multiple devices?",
+      "a": "Yes, Aura syncs via the cloud, and you can access it simultaneously on mobile and desktop."
+    },
+    "q4": {
+      "q": "How do I delete my account?",
+      "a": "Simply go to Settings > Privacy to delete all your data at any time."
+    }
+  }
+}

@@ -57,3 +57,52 @@ body {
   0% { transform: translate(0, 0); }
   100% { transform: translate(30px, 30px); }
 }
+/* src/app/globals.css */
+:root {
+  /* --- تم روشن (پیش‌فرض) --- */
+  --background: #ffffff;
+  --foreground: #171717; /* رنگ متن اصلی */
+  --text-muted: #6b7280; /* رنگ متن توضیحات */
+  
+  --primary: #6d28d9; /* بنفش اصلی */
+  --primary-hover: #5b21b6;
+  
+  --card-bg: #f9fafb; /* پس‌زمینه کارت‌ها در تم روشن */
+  --card-border: #e5e7eb;
+  
+  --nav-bg: rgba(255, 255, 255, 0.8); /* پس‌زمینه هدر شیشه‌ای */
+  --footer-bg: #f3f4f6;
+  
+  --button-text: #ffffff;
+
+  --destructive: #ef4444; /* رنگ قرمز برای ضبط و حذف */
+  --destructive-foreground: #ffffff;
+}
+
+[data-theme='dark'] {
+  /* --- تم تیره --- */
+  --background: #050505;
+  --foreground: #ededed;
+  --text-muted: #9ca3af;
+  
+  --primary: #8b5cf6; /* بنفش کمی روشن‌تر برای کنتراست */
+  --primary-hover: #7c3aed;
+  
+  --card-bg: #171717; /* پس‌زمینه کارت‌ها در تم تیره */
+  --card-border: #262626;
+  
+  --nav-bg: rgba(5, 5, 5, 0.8);
+  --footer-bg: #0a0a0a;
+  
+  --button-text: #ffffff;
+  --destructive: #dc2626;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.description-text {
+  color: var(--text-muted);
+}

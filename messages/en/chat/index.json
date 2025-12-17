@@ -1,0 +1,89 @@
+{
+  "actions": {
+    "reply": "Reply",
+    "copy": "Copy Text",
+    "forward": "Forward",
+    "edit": "Edit",
+    "delete": "Delete",
+    "delete_confirm": "Delete for everyone?"
+  },
+  "input": {
+    "placeholder": "Type a message...",
+    "editing": "Editing message..."
+  },
+  "profile_info": {
+    "title": "User Info",
+    "username": "Username",
+    "bio": "Bio",
+    "notifications": "Notifications",
+    "common_groups": "Common Groups",
+    "media_tabs": {
+      "media": "Media",
+      "files": "Files",
+      "links": "Links",
+      "voice": "Voice"
+    }
+  },
+  "preview": {
+    "title": "Send File",
+    "caption_placeholder": "Add a caption...",
+    "send": "Send",
+    "cancel": "Cancel",
+    "file_type": "File"
+  },
+  "voice": {
+    "recording": "Recording...",
+    "cancel": "Slide to cancel",
+    "release": "Release to send"
+  },
+  "lightbox": {
+    "of": "of"
+  },
+  "voice_draft": {
+    "title": "Voice Message",
+    "cancel": "Discard"
+  },
+  "sticky_player": {
+    "playing": "Playing",
+    "close": "Close"
+  },
+  "recorder": {
+    "recording": "Recording...",
+    "cancel": "Cancel",
+    "stop_hint": "Stop to review",
+    "caption_placeholder": "Add a caption...",
+    "send": "Send",
+    "review_title": "Voice Review",
+    "title": "Microphone Access Denied",
+    "description": "To send voice messages, the browser needs microphone access. Please enable it from browser settings.",
+    "allow_btn": "Got it",
+    "settings_help": "How to enable?"
+  },
+  "permissions": {
+    "title": "Microphone Access Denied",
+    "description": "To send voice messages, the browser needs microphone access. Please enable it from browser settings.",
+    "allow_btn": "Got it",
+    "settings_help": "How to enable?",
+    "recording": "Recording...",
+    "cancel": "Cancel",
+    "stop_hint": "Stop to review",
+    "caption_placeholder": "Add a caption...",
+    "send": "Send",
+    "review_title": "Voice Review"
+  },
+  "chat": {
+    "recorder": {
+      "recording": "Recording...",
+      "cancel": "Cancel",
+      "stop_hint": "Stop to review",
+      "caption_placeholder": "Add a caption...",
+      "voice_message": "Voice Message"
+    },
+    "permissions": {
+      "title": "Microphone Access Denied",
+      "description": "Browser does not have microphone access. Please click the lock icon 🔒 near the address bar and enable microphone, then click Check Again.",
+      "retry_btn": "Check Again",
+      "cancel_btn": "Cancel"
+    }
+  }
+}

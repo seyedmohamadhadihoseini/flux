@@ -1,0 +1,19 @@
+{
+  "title": "جهات الاتصال",
+  "search_placeholder": "بحث...",
+  "add_contact": "إضافة",
+  "online": "متصل",
+  "last_seen": "آخر ظهور",
+  "invite": "دعو إلى التطبيق",
+  "empty_search": "لم يتم العثور على نتائج.",
+  "edit": "تعديل",
+  "delete": "حذف",
+  "chat": "دردشة",
+  "save": "حفظ",
+  "cancel": "إلغاء",
+  "name_label": "الاسم",
+  "phone_label": "الهاتف",
+  "confirm_delete": "هل أنت متأكد؟",
+  "edit_contact": "تعديل",
+  "new_contact": "جديد"
+}

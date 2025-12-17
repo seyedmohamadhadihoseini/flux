@@ -1,0 +1,19 @@
+{
+  "title": "مخاطبین",
+  "search_placeholder": "جستجو...",
+  "add_contact": "افزودن مخاطب",
+  "online": "آنلاین",
+  "last_seen": "آخرین بازدید",
+  "invite": "دعوت به اپلیکیشن",
+  "empty_search": "مخاطبی یافت نشد.",
+  "edit": "ویرایش",
+  "delete": "حذف",
+  "chat": "چت",
+  "save": "ذخیره",
+  "cancel": "لغو",
+  "name_label": "نام مخاطب",
+  "phone_label": "شماره تلفن / آیدی",
+  "confirm_delete": "آیا از حذف این مخاطب اطمینان دارید؟",
+  "edit_contact": "ویرایش مخاطب",
+  "new_contact": "مخاطب جدید"
+}

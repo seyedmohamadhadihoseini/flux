@@ -1,0 +1,193 @@
+.scrollContent {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 12px 20px 12px;
+  /* اسکرول بار مخفی برای زیبایی */
+  scrollbar-width: thin; 
+}
+
+/* --- بخش پیش‌نمایش (Preview) --- */
+.previewSection {
+  background-color: var(--background); /* یا رنگ متضاد برای دیده شدن */
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  justify-content: center; /* حباب وسط باشد */
+  align-items: center;
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+}
+
+.mockBubble {
+  padding: 10px 14px;
+  border-radius: 16px;
+  border-bottom-left-radius: 4px; /* شبیه پیام خودی */
+  color: white;
+  max-width: 80%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.mockText {
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.mockTime {
+  font-size: 0.7em;
+  opacity: 0.8;
+}
+
+/* --- عناوین بخش‌ها --- */
+.section {
+  margin-bottom: 24px;
+}
+
+.sectionTitle {
+  font-size: 0.9rem;
+  color: var(--primary); /* رنگ برند برای تیترها */
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+/* --- انتخاب تم (Cards) --- */
+.themeGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+}
+
+.themeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 8px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.themeCard span { font-size: 0.8rem; }
+
+.activeCard {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: rgba(var(--primary-rgb), 0.05); /* نیاز به تعریف متغیر RGB */
+}
+
+/* --- انتخاب رنگ (Colors) --- */
+.colorsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-around; /* پخش کردن در عرض */
+}
+
+.colorBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.colorBtn:hover { transform: scale(1.1); }
+
+.activeColorBtn {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px var(--card-bg), 0 0 0 5px var(--primary); /* افکت رینگ دور دایره */
+}
+
+/* --- انتخاب فونت (Slider Custom) --- */
+.fontSizeWrapper {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.fontTrack {
+  flex: 1;
+  position: relative;
+  height: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fontLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--border);
+  z-index: 1;
+  transform: translateY(-50%);
+}
+
+.fontDot {
+  width: 16px;
+  height: 16px;
+  background-color: var(--card-bg);
+  border: 2px solid var(--text-muted);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  transition: all 0.2s;
+}
+
+.activeFontDot {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.3);
+}
+
+.fontIconSmall { color: var(--text-muted); }
+.fontIconLarge { color: var(--foreground); }
+
+/* --- والپیپر --- */
+.wallpaperGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.wallpaperItem {
+  aspect-ratio: 1; /* مربع */
+  border-radius: 12px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+.wallpaperItem:hover { border-color: var(--border); }
+
+.addWallpaperBtn {
+  aspect-ratio: 1;
+  border-radius: 12px;
+  border: 2px dashed var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.addWallpaperBtn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}

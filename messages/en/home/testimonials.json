@@ -1,0 +1,21 @@
+{
+  "title": "What users imply?",
+  "subtitle": "Thousands have trusted Aura",
+  "reviews": {
+    "r1": {
+      "name": "Sarah M.",
+      "role": "Graphic Designer",
+      "text": "The best messenger I've ever used. The UI is amazing and the speed is incredible."
+    },
+    "r2": {
+      "name": "Ali R.",
+      "role": "Developer",
+      "text": "Security comes first for me, and Aura is exactly what I was looking for."
+    },
+    "r3": {
+      "name": "Mohammed K.",
+      "role": "Product Manager",
+      "text": "Since our team migrated to Aura, our coordination has become much faster."
+    }
+  }
+}

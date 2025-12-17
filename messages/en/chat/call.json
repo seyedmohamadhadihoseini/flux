@@ -1,0 +1,17 @@
+{
+  "incoming_voice": "Incoming Voice Call...",
+  "incoming_video": "Incoming Video Call...",
+  "outgoing_voice": "Calling...",
+  "outgoing_video": "Video Calling...",
+  "connected": "Connected",
+  "ended": "Call Ended",
+  "reconnecting": "Reconnecting...",
+  "mute": "Mute",
+  "unmute": "Unmute",
+  "video_on": "Camera On",
+  "video_off": "Camera Off",
+  "speaker": "Speaker",
+  "end_call": "End",
+  "answer": "Answer",
+  "decline": "Decline"
+}

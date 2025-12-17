@@ -1,8 +1,10 @@
+// src/components/LanguageSwitcher/index.tsx
 "use client";
 
 import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
+import styles from "./styles.module.css";
 
 const languages = [
   { code: 'en', name: 'English', flag: 'https://flagcdn.com/us.svg', dir: 'ltr' },
@@ -19,13 +21,11 @@ export default function LanguageSwitcher() {
 
   const currentLang = languages.find((l) => l.code === locale) || languages[0];
 
-  // --- فیکس کردن جهت (Direction) ---
+  // --- تغییر جهت داکیومنت ---
   useEffect(() => {
-    // این خط باعث می‌شود کل ساختار صفحه جهت‌ش عوض شود
     document.documentElement.dir = currentLang.dir;
     document.documentElement.lang = currentLang.code;
   }, [currentLang]);
-  // --------------------------------
 
   // بستن منو با کلیک بیرون
   useEffect(() => {
@@ -39,36 +39,35 @@ export default function LanguageSwitcher() {
   }, []);
 
   const handleChange = (code: string) => {
+    // اگر مسیر فعلی شامل لوکیل نیست (صفحه اصلی)، یا جایگزینی ساده
     const newPath = pathname.replace(`/${locale}`, `/${code}`);
     router.push(newPath);
     setIsOpen(false);
   };
 
   return (
-    <div className="relative z-50" ref={containerRef}>
+    <div className={styles.container} ref={containerRef}>
       
-      {/* دکمه اصلی (جمع و جور و سایز فیکس) */}
+      {/* دکمه اصلی */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`
-          flex items-center gap-2 px-3 py-1.5 rounded-lg border transition-all duration-200
-          ${isOpen 
-            ? "bg-white/10 border-white/20 text-white" 
-            : "bg-transparent border-transparent text-gray-300 hover:bg-white/5 hover:text-white"}
-        `}
+        className={`${styles.triggerButton} ${isOpen ? styles.triggerButtonOpen : ''}`}
+        aria-expanded={isOpen}
+        aria-label="Change Language"
       >
-        {/* سایز آیکون را اینجا قفل کردم که گنده نشود */}
         <img 
           src={currentLang.flag} 
           alt={currentLang.name} 
-          style={{ width: '20px', height: '15px', objectFit: 'cover', borderRadius: '2px' }}
+          className={styles.flagIcon}
         />
-        <span className="text-sm font-medium">{currentLang.name}</span>
+        <span className={styles.label}>{currentLang.name}</span>
         
-        {/* فلش خیلی کوچک */}
+        {/* فلش */}
         <svg 
-          className={`w-3 h-3 text-gray-400 transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`} 
-          fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          className={`${styles.chevron} ${isOpen ? styles.chevronRotate : ''}`} 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke="currentColor"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
@@ -77,13 +76,9 @@ export default function LanguageSwitcher() {
       {/* لیست بازشو */}
       {isOpen && (
         <div 
-          className={`
-            absolute top-full mt-2 w-40 p-1
-            bg-[#111] border border-[#333] 
-            rounded-lg shadow-xl
-            flex flex-col
-            ${currentLang.dir === 'rtl' ? 'left-0' : 'right-0'}
-          `}
+          className={`${styles.dropdown} ${
+            currentLang.dir === 'rtl' ? styles.alignLeft : styles.alignRight
+          }`}
         >
           {languages.map((lang) => {
             const isActive = locale === lang.code;
@@ -91,23 +86,18 @@ export default function LanguageSwitcher() {
               <button
                 key={lang.code}
                 onClick={() => handleChange(lang.code)}
-                className={`
-                  flex items-center gap-3 px-3 py-2 w-full rounded-md transition-all text-xs
-                  ${isActive 
-                    ? "bg-[#222] text-white font-bold" 
-                    : "text-gray-400 hover:bg-[#222] hover:text-gray-200"}
-                `}
+                className={`${styles.itemButton} ${isActive ? styles.activeItem : ''}`}
               >
                 <img 
                   src={lang.flag} 
                   alt={lang.name} 
-                  style={{ width: '18px', height: '13px', objectFit: 'cover', borderRadius: '2px' }}
+                  className={styles.itemFlag}
                 />
-                <span className="flex-grow text-start">{lang.name}</span>
+                <span className={styles.itemName}>{lang.name}</span>
                 
                 {/* تیک فعال بودن */}
                 {isActive && (
-                   <span className="text-emerald-500">✓</span>
+                   <span className={styles.checkMark}>✓</span>
                 )}
               </button>
             );

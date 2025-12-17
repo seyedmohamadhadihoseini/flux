@@ -1,0 +1,281 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* تاریک کردن پشت صفحه */
+    backdrop-filter: blur(8px);
+    /* بلر شیشه‌ای پشت */
+    z-index: 9999;
+    /* بالاتر از همه چیز */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    width: 100%;
+    max-width: 420px;
+    border-radius: 24px;
+    padding: 2rem;
+    position: relative;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* تنظیمات اسکرول */
+    overflow-y: auto;
+    max-height: 85vh;
+    /* کمی کمتر از 90 تا فاصله از لبه‌ها بیشتر شود */
+
+    /* --- استایل اسکرول‌بار برای فایرفاکس --- */
+    scrollbar-width: thin;
+    /* باریک کردن */
+    scrollbar-color: var(--border) transparent;
+    /* رنگ هندل و پس‌زمینه */
+}
+
+/* عرض کلی اسکرول */
+.modal::-webkit-scrollbar {
+    width: 6px;
+    /* خیلی نازک و ظریف */
+}
+
+/* مسیر (Track) یا همان پس‌زمینه اسکرول */
+.modal::-webkit-scrollbar-track {
+    background: transparent;
+    /* شفاف باشد تا دیده نشود */
+    margin-block: 10px;
+    /* کمی فاصله از بالا و پایین */
+}
+
+/* دستگیره (Thumb) یا همان بخش متحرک */
+.modal::-webkit-scrollbar-thumb {
+    background-color: var(--border);
+    /* استفاده از رنگ بردر تم */
+    border-radius: 10px;
+    /* کاملاً گرد */
+    transition: background-color 0.3s;
+}
+
+/* وقتی موس روی اسکرول می‌رود */
+.modal::-webkit-scrollbar-thumb:hover {
+    background-color: var(--text-muted);
+    /* کمی پررنگ‌تر شود */
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    /* در RTL باید چپ باشد، اما چون آیکون ضربدر است فرق زیادی ندارد */
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeBtn:hover {
+    background-color: var(--border);
+    color: var(--foreground);
+}
+
+/* RTL Support for close button */
+[dir="rtl"] .closeBtn {
+    right: auto;
+    left: 1.2rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--foreground);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* دکمه‌های سوشال */
+.socialButtons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.socialBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.8rem;
+    background-color: var(--background);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    color: var(--foreground);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.socialBtn:hover {
+    background-color: var(--border);
+    transform: translateY(-1px);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.divider span {
+    padding: 0 10px;
+}
+
+/* فرم */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.inputGroup label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--foreground);
+}
+
+.input {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    background-color: var(--background);
+    border: 1px solid var(--card-border);
+    color: var(--foreground);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.1);
+    /* نیاز به تعریف rgb پرایمری دارد یا استفاده از رنگ شفاف */
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+    /* فال‌بک بنفش */
+}
+
+.forgotPass {
+    text-align: right;
+    /* یا left بسته به دایرکشن */
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    cursor: pointer;
+    align-self: flex-end;
+}
+
+[dir="ltr"] .forgotPass {
+    align-self: flex-end;
+}
+
+[dir="rtl"] .forgotPass {
+    align-self: flex-start;
+    /* اصلاح جهت */
+}
+
+.submitBtn {
+    margin-top: 0.5rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 14px;
+    background-color: var(--primary);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.submitBtn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px -5px var(--primary);
+}
+
+.footer {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.toggleBtn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 700;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.toggleBtn:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

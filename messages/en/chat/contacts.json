@@ -1,0 +1,19 @@
+{
+  "title": "Contacts",
+  "search_placeholder": "Search...",
+  "add_contact": "Add Contact",
+  "online": "Online",
+  "last_seen": "Last seen",
+  "invite": "Invite to App",
+  "empty_search": "No contacts found.",
+  "edit": "Edit",
+  "delete": "Delete",
+  "chat": "Chat",
+  "save": "Save",
+  "cancel": "Cancel",
+  "name_label": "Contact Name",
+  "phone_label": "Phone / ID",
+  "confirm_delete": "Are you sure?",
+  "edit_contact": "Edit Contact",
+  "new_contact": "New Contact"
+}

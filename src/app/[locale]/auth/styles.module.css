@@ -1,0 +1,189 @@
+/* src/app/[locale]/auth/styles.module.css */
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+/* افکت نور پس‌زمینه */
+.glowEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+  opacity: 0.15;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card {
+  width: 100%;
+  max-width: 450px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px; /* گوشه‌های گرد مدرن */
+  padding: 2.5rem;
+  z-index: 10;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.optional {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  /* در حالت لایت پس‌زمینه سفید با بردر، در دارک پس‌زمینه تیره */
+  background-color: var(--background); 
+  border: 1px solid var(--card-border);
+  color: var(--foreground);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(109, 40, 217, 0.1); /* رنگ بنفش شفاف */
+}
+
+/* استایل پلیس‌هولدر برای خوانایی */
+.input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.forgotPass {
+  text-align: left; /* یا right بسته به جهت */
+  font-size: 0.85rem;
+}
+
+.link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--primary);
+}
+
+.submitBtn {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 14px;
+  background-color: var(--primary);
+  color: var(--button-text);
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submitBtn:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px var(--primary); /* سایه همرنگ دکمه */
+}
+
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--card-border);
+  padding-top: 1.5rem;
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 700;
+  cursor: pointer;
+  margin-right: 0.5rem; /* فاصله بین متن و دکمه */
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.toggleBtn:hover {
+  text-decoration: underline;
+}
+
+/* ریسپانسیو برای موبایل */
+@media (max-width: 480px) {
+  .card {
+    padding: 1.5rem;
+    border: none; /* در موبایل کارت تمام صفحه می‌شود */
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  .container {
+    align-items: flex-start; /* فرم بالا بیاید */
+    padding-top: 4rem;
+  }
+  
+  .input {
+    padding: 1rem; /* تاچ راحت‌تر */
+  }
+}

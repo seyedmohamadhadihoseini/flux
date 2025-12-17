@@ -1,0 +1,21 @@
+{
+  "search_placeholder": "جستجو...",
+  "toggle_sidebar": "تغییر منو",
+  "filters": {
+    "all": "همه",
+    "personal": "شخصی",
+    "group": "گروه‌ها",
+    "channel": "کانال‌ها"
+  },
+  "no_chats": "هنوز گفتگویی ندارید.",
+  "online": "آنلاین",
+  "last_seen": "آخرین بازدید",
+  "tabs": {
+    "chats": "پیام‌ها",
+    "contacts": "مخاطبین",
+    "settings": "تنظیمات"
+  },
+  "settings": {
+    "logout": "خروج از حساب"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "actions": {
+    "reply": "پاسخ دادن",
+    "copy": "کپی متن",
+    "forward": "هدایت پیام",
+    "edit": "ویرایش",
+    "delete": "حذف",
+    "delete_confirm": "حذف برای همه؟"
+  },
+  "input": {
+    "placeholder": "پیامی بنویسید...",
+    "editing": "در حال ویرایش پیام..."
+  },
+  "profile_info": {
+    "title": "اطلاعات کاربر",
+    "username": "نام کاربری",
+    "bio": "بیوگرافی",
+    "notifications": "اعلانات",
+    "common_groups": "گروه‌های مشترک",
+    "media_tabs": {
+      "media": "رسانه‌ها",
+      "files": "فایل‌ها",
+      "links": "لینک‌ها",
+      "voice": "صوت"
+    }
+  },
+  "preview": {
+    "title": "ارسال فایل",
+    "caption_placeholder": "توضیحی بنویسید...",
+    "send": "ارسال",
+    "cancel": "لغو",
+    "file_type": "فایل"
+  },
+  "voice": {
+    "recording": "در حال ضبط...",
+    "cancel": "برای لغو بکشید",
+    "release": "رها کنید تا ارسال شود"
+  },
+  "lightbox": {
+    "of": "از"
+  },
+  "voice_draft": {
+    "title": "پیام صوتی",
+    "cancel": "حذف"
+  },
+  "sticky_player": {
+    "playing": "در حال پخش",
+    "close": "بستن"
+  },
+  "recorder": {
+    "recording": "در حال ضبط...",
+    "cancel": "لغو",
+    "stop_hint": "توقف برای بازبینی",
+    "caption_placeholder": "نوشتن توضیح...",
+    "send": "ارسال",
+    "review_title": "بازبینی پیام صوتی"
+  },
+  "permissions": {
+    "title": "دسترسی میکروفون مسدود است",
+    "description": "برای ارسال پیام صوتی، مرورگر نیاز به دسترسی میکروفون دارد. لطفاً از تنظیمات مرورگر (آیکون قفل کنار آدرس‌بار) دسترسی را فعال کنید.",
+    "allow_btn": "متوجه شدم",
+    "settings_help": "چگونه فعال کنیم؟"
+  },
+  "chat": {
+    "recorder": {
+      "recording": "در حال ضبط...",
+      "cancel": "لغو",
+      "stop_hint": "توقف برای بازبینی",
+      "caption_placeholder": "نوشتن توضیح...",
+      "voice_message": "پیام صوتی"
+    },
+    "permissions": {
+      "title": "دسترسی میکروفون مسدود است",
+      "description": "مرورگر اجازه دسترسی به میکروفون را ندارد. لطفاً روی آیکون قفل 🔒 در کنار آدرس سایت کلیک کنید و دسترسی میکروفون را فعال کنید، سپس دکمه بررسی مجدد را بزنید.",
+      "retry_btn": "بررسی مجدد دسترسی",
+      "cancel_btn": "انصراف"
+    }
+  }
+}

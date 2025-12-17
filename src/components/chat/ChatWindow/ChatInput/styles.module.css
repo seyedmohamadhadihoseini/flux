@@ -1,0 +1,130 @@
+.inputWrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--card-bg);
+  border-top: 1px solid var(--card-border);
+  position: relative;
+  z-index: 20;
+}
+
+/* --- استایل‌های درفت ویس (بدون تغییر) --- */
+.draftVoiceContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background-color: var(--background);
+    border-bottom: 1px solid var(--border);
+    border-inline-start: 3px solid var(--primary);
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.draftInfo { display: flex; align-items: center; gap: 12px; }
+
+.draftPlayBtn {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: var(--primary); color: #fff;
+    border: none; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.waveformStatic {
+    display: flex; align-items: center; gap: 2px; height: 24px; opacity: 0.8;
+}
+
+.bar {
+    width: 3px; background-color: var(--foreground); border-radius: 2px;
+    transition: height 0.1s ease;
+}
+
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.5); }
+}
+
+.draftLabel {
+    font-size: 0.85rem; color: var(--text-muted); font-weight: 500;
+}
+
+.deleteDraftBtn {
+    background: transparent; border: none; color: var(--text-muted);
+    cursor: pointer; padding: 6px; border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+}
+.deleteDraftBtn:hover {
+    background-color: rgba(239, 68, 68, 0.1); color: var(--destructive);
+}
+
+/* --- کانتینر ورودی اصلی --- */
+.inputContainer {
+  display: flex;
+  align-items: flex-end; /* تراز دکمه‌ها با پایین‌ترین خط متن */
+  padding: 12px 16px;
+  gap: 12px;
+  min-height: 64px;
+}
+
+/* استایل textarea بدون پرش */
+.textInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--foreground);
+  
+  /* تنظیمات ضد پرش */
+  line-height: 1.5; 
+  padding: 10px 0; /* فاصله متناسب بالا و پایین */
+  resize: none; 
+  
+  /* حذف اسکرول بار پیش‌فرض */
+  overflow: hidden; 
+}
+
+/* دکمه‌های اطراف */
+.attachBtn, .micBtn, .sendBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.attachBtn, .micBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+}
+
+.attachBtn:hover, .micBtn:hover {
+  background-color: var(--bg-secondary);
+  color: var(--foreground);
+  transform: translateY(-2px);
+}
+
+.sendBtn {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.sendBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+[dir="ltr"] .sendIcon { margin-left: 2px; margin-top: 2px; }
+[dir="rtl"] .sendIcon { margin-right: 2px; margin-top: 2px; transform: rotate(180deg); }
+
+@keyframes slideUp {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}

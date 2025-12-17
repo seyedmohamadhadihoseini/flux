@@ -3,12 +3,16 @@
   "columns": {
     "product": "المنتج",
     "legal": "قانوني",
-    "social": "تواصل اجتماعي"
+    "social": "تواصل اجتماعي",
+    "resources":"منبع"
   },
   "links": {
     "download": "تحميل التطبيق",
     "features": "المميزات",
     "privacy": "سياسة الخصوصية",
-    "terms": "شروط الخدمة"
+    "terms": "شروط الخدمة",
+    "status":"وضع",
+    "security":"امنیه",
+    "blog":"مقاله"
   }
 }

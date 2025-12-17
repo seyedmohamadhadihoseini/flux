@@ -1,0 +1,16 @@
+{
+  "title": "How It Works",
+  "subtitle": "Simple steps to get started",
+  "step1": {
+    "title": "Sign Up",
+    "desc": "Create an account in seconds."
+  },
+  "step2": {
+    "title": "Configure",
+    "desc": "Set up your preferences easily."
+  },
+  "step3": {
+    "title": "Launch",
+    "desc": "Go live with one click."
+  }
+}

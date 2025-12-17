@@ -1,0 +1,14 @@
+{
+  "title": "اطلاعات کاربر",
+  "username": "نام کاربری",
+  "bio": "بیوگرافی",
+  "notifications": "اعلانات",
+  "common_groups": "گروه‌های مشترک",
+  "media_tabs": {
+    "media": "رسانه‌ها",
+    "files": "فایل‌ها",
+    "groups": "گروه‌ها",
+    "voice": "صوت",
+    "links": "لینک‌ها"
+  }
+}

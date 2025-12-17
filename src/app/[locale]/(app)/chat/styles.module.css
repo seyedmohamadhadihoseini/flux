@@ -1,0 +1,44 @@
+
+.layout {
+  display: flex;
+  height: 100vh; /* تمام ارتفاع صفحه */
+  overflow: hidden; /* جلوگیری از اسکرول کلی */
+  background-color: var(--background);
+}
+
+.sidebar {
+  width: 380px;
+  flex-shrink: 0;
+  background-color: var(--card-bg);
+  border-inline-end: 1px solid var(--card-border); /* خط جداکننده هوشمند */
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background);
+  /* گذاشتن پترن یا تصویر پس‌زمینه برای چت */
+  background-image: radial-gradient(var(--card-border) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* ریسپانسیو */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* در موبایل تمام صفحه */
+    /* اگر چت باز بود، این کلاس باید مخفی شود (با جاوااسکریپت هندل می‌کنیم بعدا) */
+  }
+  
+  .main {
+    display: none; /* در موبایل پیش‌فرض مخفی است تا وقتی روی چت کلیک شود */
+    width: 100%;
+  }
+  
+  /* وقتی کلاس active به مین داده شود */
+  .main.active {
+    display: flex;
+  }
+}

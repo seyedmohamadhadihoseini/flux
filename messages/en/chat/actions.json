@@ -1,0 +1,16 @@
+{
+  "reply": "Reply",
+  "copy": "Copy Text",
+  "forward": "Forward",
+  "edit": "Edit",
+  "delete": "Delete",
+  "delete_confirm": "Delete for everyone?",
+  "video_menu": {
+    "download": "Download",
+    "speed": "Playback Speed",
+    "pip": "Picture in Picture",
+    "dubbing": "AI Dubbing (Beta)",
+    "mute": "Mute",
+    "unmute": "Unmute"
+  }
+}
